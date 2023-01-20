@@ -15,18 +15,23 @@ public class Alerts {
 		driver.manage().window().maximize();
 		driver.get("https://rahulshettyacademy.com/AutomationPractice/");
 		driver.findElement(By.id("name")).sendKeys(text);
-		Simplealert(driver);
+		driver.findElement(By.id("alertbtn")).click();
+		Thread.sleep(4000);
+		String alerttext = driver.switchTo().alert().getText();
+		System.out.println(alerttext);
+		driver.switchTo().alert().accept();
+		//Simplealert(driver);
 		Confimraitonalert(driver);
 
 	}
 
 	public static void Simplealert(WebDriver driver) throws InterruptedException {
 
-		driver.findElement(By.id("alertbtn")).click();
-		Thread.sleep(4000);
-		String alerttext = driver.switchTo().alert().getText();
-		System.out.println(alerttext);
-		driver.switchTo().alert().accept();
+//		driver.findElement(By.id("alertbtn")).click();
+//		Thread.sleep(4000);
+//		String alerttext = driver.switchTo().alert().getText();
+//		System.out.println(alerttext);
+//		driver.switchTo().alert().accept();
 	}
 
 	public static void Confimraitonalert(WebDriver driver) throws InterruptedException {
